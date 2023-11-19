@@ -1,0 +1,10 @@
+:root {
+    --light200: #ffffff;
+    
+    --dark90: #9a9a9a;
+    --dark30: #3a3a3a;
+    
+    --error: #ff0000;
+    --correct: #50cf70;
+    --button: #26aa6a;
+}
