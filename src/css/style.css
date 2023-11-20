@@ -105,7 +105,8 @@ body {
     font-size: 1.2rem;
 }
 
-.valid {
+.valid,
+.valid:focus {
     border: 1px solid var(--correct);
 }
 

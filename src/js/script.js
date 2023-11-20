@@ -32,15 +32,25 @@ function validateFormSubmit() {
     }
 }
 
-inputField.forEach((input) => {
-    input.addEventListener('change', () => {
+function validateOnEvent(input) {
+    input.addEventListener('input', () => {
         validateInputChange(input);
     })
+
+    input.addEventListener('focus', () => {
+        validateInputChange(input);
+    })
+    
+    input.addEventListener('blur', () => {
+        validateFormChange(input);
+    })
+}
+
+inputField.forEach((input) => {
+    validateOnEvent(input)
 })
 
-inputMessage.addEventListener('change', () => {
-    validateInputChange(inputMessage);
-})
+validateOnEvent(inputMessage);
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
