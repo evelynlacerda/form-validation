@@ -36,35 +36,20 @@ function validateInputChange(input) {
                 validateFormChange(inputPhone);
             }
         }
-
     } else {
         input.classList.remove('valid');
     }
 }
 
 inputField.forEach((input) => {
-    input.addEventListener('input', () => {
-        validateInputChange(input);
-    })
-
-    input.addEventListener('focus', () => {
-        validateInputChange(input);
-    })
-
-    input.addEventListener('blur', () => {
-        if (input.value.trim() === '') {
-            validateFormChange(input);
-        }
-    })
+    input.addEventListener('input', () => validateInputChange(input))
+    input.addEventListener('focus', () => validateInputChange(input))
+    input.addEventListener('blur', () => input.value.trim() === '' && validateFormChange(input))
 })
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    inputField.forEach((input) => {
-        if (input.value.trim() === '') {
-            validateFormChange(input);
-        }
-    })
+    inputField.forEach(input => input.value.trim() === '' && validateFormChange(input))
 
     let inputValidate = Array.from(inputField).every(input => input.classList.contains('valid'));
 
