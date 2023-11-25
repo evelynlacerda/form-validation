@@ -1,9 +1,6 @@
 const form = document.querySelector('#form');
 const formSend = document.querySelector('#form-send');
-const inputField = document.querySelectorAll('.form-field');
-const inputMessage = document.querySelector('.form-text');
-
-// ------------------------------------------------------
+const inputField = document.querySelectorAll('.input-form');
 
 const inputEmail = inputField[1];
 const inputPhone = inputField[2];
@@ -18,28 +15,25 @@ function validatePhoneNumber(phoneNumber) {
     return phoneRegex.test(phoneNumber);
 }
 
-function showValidateInput(input) {
+function validateFormChange(input) {
     input.classList.remove('valid');
     input.classList.add('invalid');
     input.nextElementSibling.classList.add('error');
 }
 
-// ------------------------------------------------------
-
 function validateInputChange(input) {
-    
     if (input.value.trim() !== '') {
         input.classList.add('valid');
         input.classList.remove('invalid');
         input.nextElementSibling.classList.remove('error');
-        
+
         if (input === inputEmail) {
             if (!validateEmail(inputEmail.value.trim())) {
-                showValidateInput(inputEmail);
+                validateFormChange(inputEmail);
             }
         } else if (input === inputPhone) {
             if (!validatePhoneNumber(inputPhone.value.trim())) {
-                showValidateInput(inputPhone);
+                validateFormChange(inputPhone);
             }
         }
 
@@ -48,27 +42,7 @@ function validateInputChange(input) {
     }
 }
 
-function validateFormChange(input) {
-    if (input.value.trim() === '') {
-        input.classList.add('invalid');
-        input.nextElementSibling.classList.add('error');
-    }
-}
-
-function validateFormSubmit() {
-
-    let inputValidate = Array.from(inputField).every(input => input.classList.contains('valid'));
-    let inputMessageValidate = inputMessage.classList.contains('valid')
-
-    if (inputValidate && inputMessageValidate) {
-        form.classList.add('hide');
-        formSend.classList.remove('hide');
-    }
-}
-
-// ------------------------------------------------------
-
-function validateOnEvent(input) {
+inputField.forEach((input) => {
     input.addEventListener('input', () => {
         validateInputChange(input);
     })
@@ -78,22 +52,24 @@ function validateOnEvent(input) {
     })
 
     input.addEventListener('blur', () => {
-        validateFormChange(input);
+        if (input.value.trim() === '') {
+            validateFormChange(input);
+        }
     })
-}
-
-inputField.forEach((input) => {
-    validateOnEvent(input)
 })
-
-validateOnEvent(inputMessage);
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     inputField.forEach((input) => {
-        validateFormChange(input);
+        if (input.value.trim() === '') {
+            validateFormChange(input);
+        }
     })
 
-    validateFormChange(inputMessage);
-    validateFormSubmit();
+    let inputValidate = Array.from(inputField).every(input => input.classList.contains('valid'));
+
+    if (inputValidate) {
+        form.classList.add('hide');
+        formSend.classList.remove('hide');
+    }
 })

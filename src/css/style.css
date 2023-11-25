@@ -41,7 +41,6 @@ body {
     width: 40rem;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
     background: var(--light200);
     padding: 2.4rem;
     border-radius: .8rem;
@@ -63,11 +62,8 @@ body {
     font-size: 1.4rem;
 }
 
-.box-field {
-    display: flex;
-    flex-direction: column;
-    gap: .4rem;
-    margin: 0 0 .4rem;
+.input-form:nth-child(n+2) {
+    margin-top: 1.6rem;
 }
 
 .form-field {
@@ -103,6 +99,7 @@ body {
     display: none;
     color: var(--error);
     font-size: 1.2rem;
+    margin: .4rem 0 0;
 }
 
 .valid,
@@ -122,7 +119,7 @@ body {
     color: var(--dark90);
     font-size: 1.6rem;
     font-style: italic;
-    margin: .8rem 0 0;
+    margin: 2.4rem 0 1.2rem;
 }
 
 .btn-submit {
@@ -144,8 +141,6 @@ body {
 .hide {
     display: none !important;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 992px) and (min-width: 769px) {
     .box {
