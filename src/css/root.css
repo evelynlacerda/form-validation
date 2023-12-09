@@ -1,10 +1,11 @@
 :root {
-    --light200: #ffffff;
+    --light200: #efefef;
     
     --dark90: #9a9a9a;
     --dark30: #3a3a3a;
+    --dark10: #101010;
     
     --error: #ff0000;
-    --correct: #50cf70;
+    --correct: #00ff40;
     --button: #26aa6a;
 }
