@@ -2,14 +2,13 @@
 <h1>Validação de Formulário</h1>
 
 ### 📝 Quest "HTML, CSS e JavaScritp Intermediário"
-</div>
 
 <br>
 
 ### 📜 Descrição:
-<p align="justify">
 Esse projeto foi desenvolvido no curso DevQuest Frontend, com intenção de aprimorar as habilidades adquiridas em HTML, CSS e JavaScript. O projeto consiste em um formulário de mensagem onde é feita a validação dos campos, e caso algum campo não esteja preenchido corretamente, o formulário apresentará a mensagem de campo obrigatório.
-</p>
+
+<br>
 
 ### 🚀 Tecnologias Utilizadas:
 <div style="display:block">
@@ -18,6 +17,9 @@ Esse projeto foi desenvolvido no curso DevQuest Frontend, com intenção de apri
     <img src="https://img.shields.io/badge/CSS-0c1014?style=for-the-badge&logo=javascript">
 </div>
 
+<br>
 
 ### 📸 Preview:
 <img src="./src/img/preview.png">
+
+</div>
